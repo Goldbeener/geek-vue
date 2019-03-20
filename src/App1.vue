@@ -57,6 +57,7 @@ export default {
       // eslint-disable-next-line
       console.log('sss', e)
       this.name = e
+      return 'test_from_parent'
     }
   },
 }

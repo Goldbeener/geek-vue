@@ -23,7 +23,9 @@ export default {
       this.$emit('changeName', e.target.value)
     },
     handleDiv(){
-      this.$emit('changeName', '')
+      let who = this.$emit('changeName', '')
+      // eslint-disable-next-line
+      console.log(who)
     },
     handleSuccess () {
       // e.stopPropagation()
