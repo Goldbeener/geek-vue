@@ -2,11 +2,15 @@
   <div class="prop-demo">
     name: {{name}}
     <br/>
+    child_name: {{child_name}}
+    <br />
     type: {{type}}
     <br/>
     list: {{list}}
     <br/>
     isVisible: {{isVisible}}
+    <br/>
+    child_visible: {{child_visible}}
     <br/>
     <button @click="handleClick">change type</button>
   </div>
@@ -36,11 +40,28 @@ export default {
       default: () => {}
     }
   },
+  data() {
+    return {
+      child_name: this.name
+    }
+  },
+  computed: {
+    child_visible: {
+      get: function () {
+        return this.isVisible + '????'
+      },
+      set: function (value) {
+        // eslint-disable-next-line 
+        console.log('计算属性发生了变化', value)
+        // this.isVisible = value
+      }
+    }
+  },
   methods: {
     handleClick(){
-      // eslint-disable-next-line 
-      console.log('123')
       this.onChange(this.type === 'success' ? 'warning' : 'success')
+      this.child_name = 'I am child name' + (this.type === 'success' ? 'warning' : 'success')
+      this.child_visible = (this.type === 'success' ? 'warning' : 'success')
     }
   }
 }

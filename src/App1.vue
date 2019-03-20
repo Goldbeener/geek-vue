@@ -13,18 +13,21 @@
       custom='sss'
       class="parent-class"
     ></Props>
+    <Events :name='name' @changeName='onChangeName'></Events>
   </div>
 </template>
 
 <script>
 import TodoItem from './components/TodoItem.vue'
 import Props from './views/1.1/Props'
+import Events from './views/1.1/Event'
 
 export default {
   name: 'app',
   components: {
     TodoItem,
-    Props
+    Props,
+    Events
   },
   data() {
     return {
@@ -42,14 +45,18 @@ export default {
       ],
       typeValue: 'success',
       pname: 'hi vue',
-      visibleMark: true
+      visibleMark: true,
+      name: ''
     }
   },
   methods: {
     changeEvent(e){
-      // eslint-disable-next-line 
-      console.log('伏组件的是', e)
       this.typeValue = e
+    },
+    onChangeName (e) {
+      // eslint-disable-next-line
+      console.log('sss', e)
+      this.name = e
     }
   },
 }
