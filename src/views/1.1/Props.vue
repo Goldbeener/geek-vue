@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="prop-demo">
     name: {{name}}
     <br/>
     type: {{type}}
@@ -14,6 +14,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   name: 'PropsDemo',
   props: {
     name: String,
@@ -37,6 +38,8 @@ export default {
   },
   methods: {
     handleClick(){
+      // eslint-disable-next-line 
+      console.log('123')
       this.onChange(this.type === 'success' ? 'warning' : 'success')
     }
   }
@@ -44,8 +47,7 @@ export default {
 </script>
 
 <style scoped>
-.text {
-  color: #f60;
-  text-align: left;
+.prop-demo {
+  color: blueviolet;
 }
 </style>
